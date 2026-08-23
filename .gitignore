@@ -1,0 +1,33 @@
+# 의존성
+node_modules/
+
+# 빌드 산출물
+dist/
+build/
+release/
+public/atlas/          # AssetPack 출력. assets/ 의 raw PNG 가 원본이다
+
+# 테스트 · 검증 산출물
+shots/
+test-results/
+playwright-report/
+coverage/
+
+# 로컬 환경
+.env
+.env.local
+*.local
+
+# 에디터 · OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 스팀 — 출시 빌드에 절대 포함되면 안 된다 (docs/05-SHIP.md)
+steam_appid.txt
+
+# 로그
+*.log
+npm-debug.log*
