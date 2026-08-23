@@ -31,3 +31,6 @@ steam_appid.txt
 # 로그
 *.log
 npm-debug.log*
+
+# AssetPack 캐시
+.assetpack/
