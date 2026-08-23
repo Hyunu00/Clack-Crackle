@@ -13,6 +13,30 @@
 
 레퍼런스: Steam "Click the Button"
 
+## ★ 2인 작업이다 — 먼저 확인할 것
+
+이 프로젝트는 두 사람이 레인을 나눠 병렬로 작업한다.
+**`docs/11-WORKSTREAMS.md` 를 읽고 시작할 것.**
+
+```
+"뭐 하면 되나요?" / "다음 작업 뭐야?"
+        → docs/11-WORKSTREAMS.md 의 "다음 작업" 표.
+          자기 레인에서 맨 위 미완료 항목이 지금 할 일이다.
+
+"이 파일 고쳐도 되나?"
+        → 같은 문서의 "파일 소유권". 남의 레인 파일은 고치지 않고 요청한다.
+
+레인을 모르겠으면 물어볼 것. 임의로 정하고 시작하지 말 것.
+```
+
+| 레인 | 영역 | 담당 문서 |
+|---|---|---|
+| **A · 엔진** | `src/core/` `scripts/` — 상태·경제·밸런스 | `02-ECONOMY` `07-ACHIEVEMENTS` |
+| **B · 감각** | `render/` `audio/` `ui/` `assets/` — 손맛·화면·소리 | `03-ART` `04-AUDIO` |
+
+두 레인의 유일한 접점은 **`src/core/state.ts` 의 `GameState` / `GameEvent`** 다.
+여기를 건드리면 상대 레인이 즉시 영향을 받는다. 바꿨으면 바로 머지한다.
+
 ## 설계 논지
 
 **소리가 보상이고, 숫자는 페이싱 장치다.**
@@ -78,6 +102,8 @@
 8. **이름은 i18n 키로만 쓴다.** `nameKey: "ball.type.001"` 이지, `name: "사과"` 가 아니다.
    고유명사가 74개이고 9개 언어로 나간다. 하드코딩하면 전부 뜯어내야 한다.
    **언어 추가는 JSON 1개 + `locales.ts` 1줄로 끝나야 한다** (`docs/10-I18N.md`).
+   새 문자열은 `en.json` + `ko.json` 두 파일에만 추가한다. 나머지 7개는
+   건드리지 않는다 — 폴백이 처리하고 `npm test` 가 남은 걸 세어준다.
 9. **core 를 성능 이유로 mutable 하게 바꾸지 않는다.** 20시간 시뮬레이션이
    91ms 로 측정됐다. 순수 함수라는 성질이 성능보다 중요하다.
 10. 커밋 전 `npm run check`.
@@ -98,6 +124,10 @@ src/
       skilltree.ts   노드 + 자동화 3단계
       audio.ts       사운드 정의 (데이터만)
   i18n/          ★ 문자열. 콘텐츠 데이터보다 먼저 존재해야 한다
+    index.ts       t(key, params?) / setLocale. 라이브러리 안 씀
+    locales.ts     LOCALES. 언어 추가 시 고치는 유일한 코드 파일
+    en.json        ★ 키 집합의 기준. ko 외 8개는 여기로 폴백된다
+    ko.json ...    T0/T1 9개 언어
   audio/         howler 재생. GameEvent 구독
   render/        Pixi. 상태를 읽고 그리기만
   ui/            HTML HUD
@@ -133,7 +163,8 @@ assets/          AssetPack 입력 → public/atlas/ 로 패킹
 | `docs/07-ACHIEVEMENTS.md` | 업적 |
 | `docs/08-NAMING.md` | 이름 워크시트 (제목만 확정, 나머지 미정) |
 | `docs/09-DEV-ENV.md` | 개발 환경, 명령어, 검증 방법 |
-| `docs/10-I18N.md` | **현지화.** 제목, 지원 언어, 언어 추가 절차 |
+| `docs/10-I18N.md` | **현지화.** 제목, 지원 언어, 언어·문자열 추가 절차 |
+| `docs/11-WORKSTREAMS.md` | **2인 분담.** 레인, 파일 소유권, 다음 작업. **작업 전 필독** |
 
 ## 하지 말 것
 
