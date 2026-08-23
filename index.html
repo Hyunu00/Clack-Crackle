@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Clack &amp; Crackle</title>
+		<style>
+			/* docs/03-ART.md 의 팔레트.
+			   src/render/palette.ts 와 항상 같이 고칠 것. */
+			:root {
+				--case: #14161c;
+				--plate: #272d3a;
+				--cap: #e8e2d4;
+				--amber: #f2b705;
+				--jade: #6ec3c1;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			/* 폰트 프로필. src/i18n/locales.ts 의 font 값이
+			   <html data-font="..."> 로 들어온다 (docs/10-I18N.md 폰트 매트릭스).
+
+			   ★ 픽셀 폰트는 아직 없다. 상업 이용 라이선스와 글리프 커버리지를
+			     확인한 뒤 @font-face 를 여기 얹으면 된다. 프로필별로 다른
+			     폰트를 물리는 구조를 미리 잡아둔 것이라 렌더러를 안 건드린다.
+			   ★ latin 프로필은 확장 라틴(ä ß ñ ł ı)까지 덮어야 한다.
+			     자주 사고가 나는 지점이다. */
+			:root {
+				--font-game: system-ui, sans-serif;
+			}
+			[data-font="ko"] {
+				--font-game: system-ui, "Malgun Gothic", sans-serif;
+			}
+			[data-font="ja"] {
+				--font-game: system-ui, "Yu Gothic", sans-serif;
+			}
+			[data-font="zh"] {
+				--font-game: system-ui, "Microsoft YaHei", sans-serif;
+			}
+
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				background: var(--case);
+				color: var(--cap);
+				overflow: hidden;
+				font-family: var(--font-game);
+			}
+
+			#stage {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				display: grid;
+				place-items: center;
+			}
+
+			/* 픽셀아트. 브라우저가 캔버스를 보간하면 안 된다. */
+			#game {
+				display: block;
+				image-rendering: pixelated;
+			}
+
+			/* HUD 는 HTML 이다. Pixi 로 만들지 않는다. */
+			#hud {
+				position: absolute;
+				inset: 0;
+				pointer-events: none;
+			}
+
+			#boot-info {
+				position: absolute;
+				left: 8px;
+				top: 8px;
+				font-size: 11px;
+				line-height: 1.5;
+				color: var(--jade);
+				opacity: 0.7;
+				white-space: pre;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="stage">
+			<canvas id="game"></canvas>
+			<div id="hud"><div id="boot-info"></div></div>
+		</div>
+		<script type="module" src="/src/main.ts"></script>
+	</body>
+</html>
