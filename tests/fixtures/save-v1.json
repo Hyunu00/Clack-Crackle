@@ -1,0 +1,122 @@
+{
+	"version": 1,
+	"run": {
+		"gold": "7214.0055852899",
+		"goldEarned": "303945.57",
+		"field": [
+			{
+				"uid": 900,
+				"typeId": 1,
+				"grade": "common",
+				"progress": {
+					"hold": 0.42,
+					"auto": 0
+				}
+			},
+			{
+				"uid": 901,
+				"typeId": 19,
+				"grade": "legendary",
+				"progress": {
+					"hold": 0.1,
+					"auto": 0.3
+				}
+			}
+		],
+		"equippedCapId": 4,
+		"rouletteCount": 122,
+		"capPresses": 9,
+		"autoPressAcc": 0,
+		"autoRollTimer": 0,
+		"brokenCount": 155,
+		"gradeBonusSum": 164.2,
+		"pending": {
+			"uid": 902,
+			"typeId": 49,
+			"grade": "supreme",
+			"progress": {
+				"hold": 0,
+				"auto": 0
+			}
+		},
+		"nextUid": 156
+	},
+	"meta": {
+		"rebirthCurrency": "0",
+		"skills": {
+			"goldMult": 3,
+			"breakEfficiency": 2,
+			"auto.keycap": 1,
+			"auto.break": 2
+		},
+		"caps": [4, 2, 5, 3, 8, 7, 11, 1, 9, 6, 13, 10, 12, 14],
+		"fragments": {
+			"common": 0,
+			"rare": 0,
+			"epic": 3,
+			"legendary": 3,
+			"supreme": 0
+		},
+		"types": {
+			"1": 1,
+			"10": 1,
+			"11": 2,
+			"33": 1,
+			"47": 1,
+			"49": 1
+		},
+		"dex": {
+			"1": 31,
+			"10": 1,
+			"11": 7,
+			"33": 15,
+			"47": 7,
+			"49": 1
+		}
+	},
+	"perm": {
+		"stats": {
+			"playSeconds": 540.0000000000542,
+			"totalBreaks": 155,
+			"totalRolls": 122,
+			"totalRebirths": 0,
+			"totalGold": "303945.57",
+			"goldBySource": {
+				"keycap": "2167.53",
+				"ball": "292530.84",
+				"idle": "7607.2",
+				"refund": "1640"
+			},
+			"gradesSeen": 15,
+			"maxTypeLevel": 2,
+			"rouletteFails": 3
+		},
+		"achievements": [
+			"FIRST_BREAK",
+			"FIRST_ROULETTE",
+			"FIRST_CAP",
+			"GRADE_RARE",
+			"GRADE_LEGEND",
+			"GRADE_EPIC",
+			"FIRST_UNLOCK",
+			"BAD_LUCK",
+			"CAPS_50",
+			"BREAK_100",
+			"FIRST_BREAK",
+			"FIRST_ROULETTE"
+		],
+		"settings": {
+			"fieldFullDefault": "ask",
+			"crackStages": 4,
+			"autoBreak": true,
+			"autoKeycap": true,
+			"autoRoulette": true,
+			"volumeMaster": 0.8,
+			"volumeSfx": 1,
+			"volumeBgm": 0.5,
+			"bgmEnabled": false,
+			"flashOnBreak": false,
+			"locale": null
+		}
+	}
+}
