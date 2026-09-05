@@ -34,7 +34,7 @@ function render(): void {
 	info.textContent = [
 		t("game.title"),
 		`view    ${view.app.renderer.width}x${view.app.renderer.height}`,
-		`logical 640x360  scale x${view.scale}`,
+		`design  1920x1080  scale x${view.scale.toFixed(3)}`,
 		`locale  ${locale.code} (${locale.label})  font=${locale.font}  ${locale.tier}`,
 	].join("\n");
 }
