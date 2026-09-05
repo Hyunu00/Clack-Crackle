@@ -220,6 +220,8 @@
 	"ui.settings.volumeMaster": "[ui.settings.volumeMaster]",
 	"ui.settings.volumeSfx": "[ui.settings.volumeSfx]",
 	"ui.settings.volumeBgm": "[ui.settings.volumeBgm]",
+	"ui.settings.crackStages": "[ui.settings.crackStages]",
+	"ui.settings.crackStagesHint": "[ui.settings.crackStagesHint]",
 	"ui.settings.display": "[ui.settings.display]",
 	"ui.settings.fullscreen": "[ui.settings.fullscreen]",
 	"ui.settings.windowed": "[ui.settings.windowed]",
