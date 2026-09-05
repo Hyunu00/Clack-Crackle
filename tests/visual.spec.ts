@@ -7,7 +7,7 @@ import { expect, test } from "@playwright/test";
 
 const SHOTS = "shots";
 
-test("boot — 640x360 x3", async ({ page }) => {
+test("boot — 1920x1080", async ({ page }) => {
 	const errors: string[] = [];
 	page.on("console", (msg) => {
 		if (msg.type() === "error") errors.push(msg.text());

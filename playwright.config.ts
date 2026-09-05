@@ -8,7 +8,7 @@ export default defineConfig({
 	reporter: [["list"]],
 	use: {
 		baseURL: "http://localhost:5173",
-		// 640x360 의 정확히 x3. 픽셀이 흐려지면 정수 배율이 깨진 것이다
+		// 기준 해상도 1920x1080 그대로. 배율이 정확히 1이 되는 창 크기다
 		viewport: { width: 1920, height: 1080 },
 		deviceScaleFactor: 1,
 	},

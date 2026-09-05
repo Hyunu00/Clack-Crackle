@@ -8,28 +8,15 @@ export default {
 	cache: true,
 	pipes: [
 		...pixiPipes({
-			// 픽셀아트다. 0.5x 밉맵을 만들면 안 된다
 			resolutions: { default: 1 },
-			// 무손실 PNG 만 낸다. webp/avif 로 변환하면 픽셀이 뭉개진다.
+			// 압축은 pixiPipes 기본값(png quality 90 / webp quality 80)을 그대로 쓴다.
 			//
-			// 함정 두 개:
-			//  ① `compression: false` 로는 안 꺼진다 — pixiPipes 가 기본값과
-			//     recursive merge 를 해서 객체가 살아남는다. 포맷별로 꺼야 한다.
-			//  ② 그렇다고 `png: false` 로 두면 아틀라스 .json 이 아예 안 나온다.
-			//     ui.png.json 을 만드는 게 이 파이프다. png 는 켜 둘 것.
-			//     palette:false 라 sharp 의 quality 가 안 먹고 무손실로 나간다.
-			compression: {
-				png: { palette: false, compressionLevel: 9 },
-				jpg: false,
-				webp: false,
-				avif: false,
-				bc7: false,
-				astc: false,
-				basis: false,
-				etc: false,
-			},
-			// 파일명에 해시를 붙이지 않는다.
-			// core/content/ 의 spriteKey 가 프레임 이름과 그대로 일치해야 한다
+			// ★ 픽셀아트 시절엔 여기서 무손실을 강제했었다 — 손실 압축이 픽셀 격자를
+			//   뭉갰기 때문이다. 캐주얼 아트는 그 제약이 없으니 기본값이 곧 정답이다.
+			//   `compression` 필드를 아예 안 넘기면 pixiPipes 가 png/webp 둘 다 낸다.
+			//
+			// 아틀라스 .json 을 만드는 게 이 압축 파이프다. png 를 끄면 .json 도
+			// 같이 사라지니 손대더라도 png 는 켜 둘 것.
 			cacheBust: false,
 			texturePacker: {
 				texturePacker: {

@@ -42,7 +42,9 @@
 - [ ] 짧은 설명 / 긴 설명 (GIF 섞을 것. 이 게임은 움직임이 전부)
 - [ ] 태그 — 아래 3층으로. 순서가 노출에 쓰인다
       - 장르: `Incremental` `Idler` `Point & Click` `Simulation` `Casual` `Indie`
-      - 감각/외형: `Relaxing` `Pixel Graphics` `Colorful` `Cute` `2D` `Collectathon`
+      - 감각/외형: `Relaxing` `Colorful` `Cute` `2D` `Collectathon`
+      (`Pixel Graphics` 는 2026-09 캐주얼 아트 전환으로 제외 —
+      `docs/06-DECISIONS.md` "아트 스타일 — 픽셀 → 캐주얼")
       - 유행 유입: `ASMR` + `wax cracking` 계열 (짧은 설명에도)
       → **유행 태그는 언제든 순서를 내리면 된다. 리스크 0.**
       참고: 레퍼런스작 `Click the Button`(LoopCap, 2026-08-26)은
@@ -76,7 +78,9 @@
 - [ ] 한국어 스토어에 현지화 제목 `나만 없어 왁뿌볼` 지정
 - [ ] **한국어 캡슐 이미지 별도 제작** — 제목이 다르다
 - [ ] 폰트 글리프 커버리지 확인 — 확장 라틴(ß ł ı ñ ç), 키릴, CJK.
-      **픽셀 폰트는 CJK 지원이 드물다.** 프로필별 폴백 구조를 미리 짤 것
+      캐주얼 아트 전환 후 벡터 폰트를 쓰므로 픽셀 폰트 시절보다 선택지가
+      넓다. 그래도 한/중/일이 한 폰트로 안 될 수 있으니 프로필별 폴백
+      구조는 그대로 확인할 것 (`docs/10-I18N.md` 폰트 매트릭스)
 - [ ] `npm run shot` 을 **독일어로** 한 번 — 영어 대비 1.3배라 UI 가 가장 잘 터진다
 
 ## 6. 한국 관련
